@@ -1,4 +1,4 @@
-import { Anime } from "@/lib/types/animeInterface";
+import { AnilistInfo } from "@/lib/types/info";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState, useMemo } from "react";
@@ -6,7 +6,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { FaPlay, FaStar, FaCalendarAlt } from "react-icons/fa";
 import { TbCards } from "react-icons/tb";
 
-export const AnimeCard = ({ anime }: { anime: Anime }) => {
+export const AnimeCard = ({ anime }: { anime: AnilistInfo }) => {
   const [loading, setLoading] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 

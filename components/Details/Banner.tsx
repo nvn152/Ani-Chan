@@ -6,12 +6,13 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { AnilistInfo } from "@/lib/types/info";
 
 import { darkHexColor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-const Banner = ({ info }: { info: any }) => {
+const Banner = ({ info }: { info: AnilistInfo }) => {
   return (
     <div className="w-full h-[620px]">
       <div className="relative h-[620px] overflow-hidden">

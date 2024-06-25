@@ -1,13 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-import { Anime } from "@/lib/types/animeInterface";
 import { AnimeCard } from "@/components/Card/AnimeCard";
+import { AnilistInfo } from "@/lib/types/info";
 
 interface TabProps {
-  TrendingData: Anime[];
-  PopularData: Anime[];
+  TrendingData: AnilistInfo[];
+  PopularData: AnilistInfo[];
 
-  TopRatedData: Anime[];
+  TopRatedData: AnilistInfo[];
 }
 
 export default function Tab({
@@ -30,7 +29,7 @@ export default function Tab({
             "w-full rounded-[0.3rem] border-none cursor-pointer font-bold relative overflow-hidden m-0 text-sm transition-colors duration-300 ease-in-out md:p-4 p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 mx-auto"
           }
         >
-          {TrendingData?.map((anime: Anime) => (
+          {TrendingData?.map((anime: AnilistInfo) => (
             <AnimeCard key={anime.id} anime={anime} />
           ))}
         </div>
@@ -41,7 +40,7 @@ export default function Tab({
             "w-full rounded-[0.3rem] border-none cursor-pointer font-bold relative overflow-hidden m-0 text-sm transition-colors duration-300 ease-in-out md:p-4 p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 mx-auto"
           }
         >
-          {PopularData?.map((anime: Anime) => (
+          {PopularData?.map((anime: AnilistInfo) => (
             <AnimeCard key={anime.id} anime={anime} />
           ))}
         </div>
@@ -53,7 +52,7 @@ export default function Tab({
             "w-full rounded-[0.3rem] border-none cursor-pointer font-bold relative overflow-hidden m-0 text-sm transition-colors duration-300 ease-in-out md:p-4 p-2 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2 mx-auto"
           }
         >
-          {TopRatedData?.map((anime: Anime) => (
+          {TopRatedData?.map((anime: AnilistInfo) => (
             <AnimeCard key={anime.id} anime={anime} />
           ))}
         </div>

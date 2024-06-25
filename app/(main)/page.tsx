@@ -29,6 +29,8 @@ export default function Home() {
   )
     return <div className="mt-[4.5rem]">Loading...</div>;
 
+  console.log(TrendingData);
+
   return (
     <div className="h-full max-w-8xl dark:bg-[#080808] p-2 md:p-4 mx-auto mt-[4.5rem]">
       <HomeCarousel data={TrendingData?.results} />

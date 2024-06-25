@@ -2,8 +2,9 @@ import { darkHexColor, numberToMonth } from "@/lib/utils";
 import Image from "next/image";
 import { Chip } from "@nextui-org/chip";
 import Link from "next/link";
+import { AnilistInfo } from "@/lib/types/info";
 
-function MobileBanner({ info }: { info: any }) {
+function MobileBanner({ info }: { info: AnilistInfo }) {
   return (
     <div className="relative  rounded-lg w-full h-[500px] ">
       <div className="absolute inset-0">

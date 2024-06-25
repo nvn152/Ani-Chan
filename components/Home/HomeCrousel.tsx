@@ -1,14 +1,13 @@
-import { FC } from "react";
 import { FaPlay, FaStar, FaClock } from "react-icons/fa";
 import { TbCards } from "react-icons/tb";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { useRouter } from "next/navigation";
-import { Anime } from "@/lib/types/animeInterface";
 import Image from "next/image";
+import { AnilistInfo } from "@/lib/types/info";
 
 interface HomeCarouselProps {
-  data: Anime[];
+  data: AnilistInfo[];
   loading?: boolean;
   error?: string | null;
 }

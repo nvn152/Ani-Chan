@@ -1,12 +1,10 @@
-import { Anime } from "@/lib/types/animeInterface";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import Image from "next/image";
 import { Button, ButtonGroup } from "@nextui-org/button";
-import { relative } from "path";
-import { title } from "process";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
+import { AnilistInfo } from "@/lib/types/info";
 
-function Seasons({ animeData }: { animeData: Anime }) {
+function Seasons({ animeData }: { animeData: AnilistInfo }) {
   console.log(animeData);
 
   return (

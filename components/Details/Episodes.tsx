@@ -1,14 +1,22 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import EpisodesItem from "./EpisodesItem";
 import { useGetEpisodes } from "@/lib/react-query/queriesAndMutations";
-import { useState } from "react";
+import { AnilistInfo } from "@/lib/types/info";
 
-function Episodes({ info, id }: { info: any; id: string }) {
+
+function Episodes({ info, id }: { info: AnilistInfo; id: string }) {
   const { data, isFetching, error } = useGetEpisodes({ id });
 
   if (isFetching) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error loading data</div>;
+  }
+
+  if (!data) {
+    return <div>No data available</div>;
   }
 
   return (
@@ -19,7 +27,7 @@ function Episodes({ info, id }: { info: any; id: string }) {
         </h4>
         {data.map((ep: any, i: any) => (
           <>
-            <EpisodesItem key={i} episode={ep} />
+            <EpisodesItem info={info} key={i} episode={ep} />
             {/* <Separator /> */}
           </>
         ))}

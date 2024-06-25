@@ -2,11 +2,12 @@
 
 import Banner from "@/components/Details/Banner";
 import Episodes from "@/components/Details/Episodes";
-import EpisodesItem from "@/components/Details/EpisodesItem";
+
 import MobileBanner from "@/components/Details/MobileBanner";
 import Seasons from "@/components/Details/Seasons";
-import { ScrollArea } from "@/components/ui/scroll-area";
+
 import { useGetAnimeDetails } from "@/lib/react-query/queriesAndMutations";
+
 import { useParams } from "next/navigation";
 
 function Page() {
@@ -26,7 +27,7 @@ function Page() {
     return <div>No data available</div>;
   }
 
-  console.log(info);
+
 
   return (
     <div className="w-full mt-[4.5rem] h-full dark:bg-[#080808] flex flex-col p-2 gap-2">

@@ -1,12 +1,13 @@
+import { AnilistInfo } from "@/lib/types/info";
 import Image from "next/image";
 import Link from "next/link";
 
-function EpisodesItem({ episode }: { episode: any }) {
-  console.log(episode);
+function EpisodesItem({ episode, info }: { episode: any; info: AnilistInfo }) {
+  const animeid = info.id;
 
   return (
     <Link
-      href={`/watch/episodes/${episode.id}`}
+      href={`/watch/${animeid}/${episode.id}`}
       className="my-2 p-2 rounded-lg cursor-pointer hover:ring-1  h-full w-full hover:scale-105 transition flex bg-[#222222;]"
     >
       <div>
