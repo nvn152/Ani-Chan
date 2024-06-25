@@ -5,4 +5,5 @@ export enum QUERY_KEYS {
   GET_TOP_RATED_ANIME = "gettopratedanime",
   GET_ANIME_DETAILS = "getanimedetails",
   GET_EPISODES = "getepisodes",
+  GET_STREAMING_LINKS = "getstreaminglinks",
 }

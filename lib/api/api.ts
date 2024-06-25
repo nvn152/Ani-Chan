@@ -91,3 +91,14 @@ export const fetchEpisodes = async ({ id }: { id: string }) => {
   }
   return response.json();
 };
+
+
+// CONSUMET API STREAMING LINKS
+
+export const fetchStreamingLinks = async ({ id }: { id: string }) => {
+  const response = await fetch(`${BASE_URL}/meta/anilist/watch/${id}`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+};

@@ -7,6 +7,7 @@ import {
   fetchEpisodes,
   fetchMostScoredAnime,
   fetchPopularAnime,
+  fetchStreamingLinks,
   fetchTopRatedAnime,
   fetchTrendingAnime,
 } from "@/lib/api/api";
@@ -82,6 +83,14 @@ export const useGetEpisodes = ({ id }: { id: string }) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_EPISODES, id],
     queryFn: () => fetchEpisodes({ id }),
+    enabled: !!id,
+  });
+};
+
+export const useGetStreamingLinks = ({ id }: { id: string }) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_STREAMING_LINKS, id],
+    queryFn: () => fetchStreamingLinks({ id }),
     enabled: !!id,
   });
 };
