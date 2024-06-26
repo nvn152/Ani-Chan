@@ -9,7 +9,7 @@ import { NextUIProvider } from "@nextui-org/system";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ani-CHAN",
+  title: "Anya-chan",
   description: "Stream your favorite anime",
   icons: {
     icon: "/Designer.png",

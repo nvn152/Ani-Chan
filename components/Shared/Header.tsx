@@ -27,8 +27,8 @@ const Navbar = () => {
               className="flex text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white"
               href="/"
             >
-              <p className="text-white">Ani</p>
-              <p className="text-purple-500">Chan</p>
+              <p className="text-white">ANYA-</p>
+              <p className="text-purple-500">CHAN</p>
             </Link>
           </div>
           <div className="hidden sm:flex flex-1 justify-center px-2 lg:ml-6 lg:justify-end">

@@ -1,14 +1,31 @@
 import { AnilistInfo } from "@/lib/types/info";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
-function EpisodesItem({ episode, info }: { episode: any; info: AnilistInfo }) {
-  const animeid = info.id;
+function EpisodesItem({
+  episode,
+  info,
+  animeid,
+  episodeid,
+}: {
+  episode: any;
+  info?: AnilistInfo;
+  animeid?: string;
+  episodeid?: string;
+}) {
+  const aniid = info?.id || animeid;
+
+  console.log(episodeid);
+  console.log(episode.id);
 
   return (
     <Link
-      href={`/watch/${animeid}/${episode.id}`}
-      className="my-2 p-2 rounded-lg cursor-pointer hover:ring-1  h-full w-full hover:scale-105 transition flex bg-[#222222;]"
+      href={`/watch/${aniid}/${episode.id}`}
+      className={clsx(
+        "my-2 p-2 rounded-lg cursor-pointer hover:ring-1 h-full w-full hover:scale-105 transition flex ",
+        episodeid && episodeid === episode.id ? "bg-purple-500" : "bg-[#222222]"
+      )}
     >
       <div>
         <Image
@@ -19,10 +36,10 @@ function EpisodesItem({ episode, info }: { episode: any; info: AnilistInfo }) {
           height={300}
         />
       </div>
-      <div className="ml-5 flex flex-col ">
+      <div className="ml-5 flex flex-col">
         <h1 className="text-lg font-bold">EPISODE: {episode.number}</h1>
         <p className="text-sm italic">{episode.title}</p>
-        <p className="text-xs ">{episode.createdAt}</p>
+        <p className="text-xs">{episode.createdAt}</p>
       </div>
     </Link>
   );
