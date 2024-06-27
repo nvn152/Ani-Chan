@@ -15,7 +15,7 @@ export const EpisodesItem = ({
   episodeid?: string;
 }) => {
   const aniid = info?.id || animeid;
-  
+
   return (
     <Link
       href={`/watch/${aniid}/${episode.id}`}
@@ -36,10 +36,8 @@ export const EpisodesItem = ({
       <div className="ml-5 flex flex-col">
         <h1 className="text-lg font-bold">EPISODE: {episode.number}</h1>
         <p className="text-sm italic">{episode.title}</p>
-        <p className="text-xs">{episode.createdAt}</p>
+        {/* <p className="text-xs">{episode.createdAt}</p> */}
       </div>
     </Link>
   );
 };
-
-

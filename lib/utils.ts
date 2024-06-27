@@ -62,3 +62,33 @@ export function darkHexColor(hex: string, percent: number): string {
 
   return darkHex;
 }
+
+export const Providers = [
+  {
+    name: "9anime",
+  },
+  {
+    name: "animefox",
+  },
+  {
+    name: "animepahe",
+  },
+  {
+    name: "bilibili",
+  },
+  {
+    name: "crunchyroll",
+  },
+  {
+    name: "enime",
+  },
+  {
+    name: "gogoanime",
+  },
+  {
+    name: "marin",
+  },
+  {
+    name: "zoro",
+  },
+];

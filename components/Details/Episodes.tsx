@@ -4,7 +4,6 @@ import { useGetEpisodes } from "@/lib/react-query/queriesAndMutations";
 import { AnilistInfo } from "@/lib/types/info";
 import { EpisodesItem } from "./EpisodesItem";
 
-
 function Episodes({ info, id }: { info: AnilistInfo; id: string }) {
   const { data, isFetching, error } = useGetEpisodes({ id });
 
@@ -26,12 +25,16 @@ function Episodes({ info, id }: { info: AnilistInfo; id: string }) {
         {/* <h4 className="my-3 text-lg  text-center font-medium leading-none">
           Episodes
         </h4> */}
-        {data.map((ep: any, i: any) => (
-          <>
-            <EpisodesItem info={info} key={i} episode={ep} />
-            {/* <Separator /> */}
-          </>
-        ))}
+        {data.length > 0
+          ? data.map((ep: any, i: any) => (
+              <>
+                <EpisodesItem info={info} key={i} episode={ep} />
+                {/* <Separator /> */}
+              </>
+            ))
+          : info.episodes.map((ep: any, i: any) => (
+              <EpisodesItem info={info} key={i} episode={ep} />
+            ))}
       </div>
     </ScrollArea>
   );

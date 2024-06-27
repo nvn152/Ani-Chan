@@ -18,19 +18,26 @@ const Page: NextPage = () => {
     episodeid: string;
   }>();
 
-  const { data, isFetching, error } = useGetStreamingLinks({ id: episodeid });
+  const { data, isFetching, error } = useGetStreamingLinks({
+    id: episodeid,
+    provider: "gogoanime",
+  });
+
   const {
     data: episodes,
-    isFetching: isFetchingInfo,
+    isFetching: isFetchingEpisodes,
     error: errorInfo,
   } = useGetEpisodes({ id: animeid });
-  const {data: anime} = useGetAnimeDetails({id: animeid})
+
+  const { data: info, isFetching: isFetchingAnimeDetails } = useGetAnimeDetails(
+    { id: animeid }
+  );
 
   if (errorInfo) {
     return <div>Error: {errorInfo.message}</div>;
   }
 
-  if (isFetchingInfo) {
+  if (isFetchingEpisodes || isFetchingAnimeDetails) {
     return <div>Loading...</div>;
   }
 
@@ -42,10 +49,6 @@ const Page: NextPage = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(anime)
-
-
-
   return (
     <MaxWidthWrapper>
       <div className="w-full mt-[4.5rem] h-full dark:bg-[#080808] flex flex-col p-2 gap-2">
@@ -56,7 +59,11 @@ const Page: NextPage = () => {
             <Player data={data} />
 
             <div className="flex-grow  mt-auto flex items-center justify-center relative rounded-lg">
-              <AnimeControl />
+              <AnimeControl
+                anime={info}
+                episodeid={episodeid}
+                episodes={episodes}
+              />
             </div>
           </div>
 
@@ -66,6 +73,8 @@ const Page: NextPage = () => {
               episodes={episodes}
               episodeid={episodeid}
               animeid={animeid}
+              anime={info}
+              isFetchingEpisodes={isFetchingEpisodes}
             />
           </div>
         </div>

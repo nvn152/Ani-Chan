@@ -3,42 +3,14 @@
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "./queryKeys";
 import {
+  fetchData,
   fetchAnimeDetails,
   fetchEpisodes,
-  fetchMostScoredAnime,
-  fetchPopularAnime,
   fetchStreamingLinks,
-  fetchTopRatedAnime,
-  fetchTrendingAnime,
-} from "@/lib/api/api";
+} from "./queryFunctions";
 
-export const useGetTrendingAnime = ({
-  perPage,
-  page,
-}: {
-  perPage: number;
-  page: number;
-}) => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.GET_TRENDING_ANIME],
-    queryFn: () => fetchTrendingAnime({ perPage, page }),
-  });
-};
-
-export const useGetPopularAnime = ({
-  perPage,
-  page,
-}: {
-  perPage: number;
-  page: number;
-}) => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.GET_POPULAR_ANIME],
-    queryFn: () => fetchPopularAnime({ perPage, page }),
-  });
-};
-
-export const useGetMostScoredAnime = ({
+//HOME PAGE DATA
+export const useGetHomePageData = ({
   page,
   perPage,
 }: {
@@ -46,24 +18,12 @@ export const useGetMostScoredAnime = ({
   perPage: number;
 }) => {
   return useQuery({
-    queryKey: [QUERY_KEYS.GET_MOST_SCORED_ANIME],
-    queryFn: () => fetchMostScoredAnime({ page: page, perPage: perPage }),
+    queryKey: ["anv"],
+    queryFn: () => fetchData({ page: page, perPage: perPage }),
   });
 };
 
-export const useGetTopRatedAnime = ({
-  perPage,
-  page,
-}: {
-  perPage: number;
-  page: number;
-}) => {
-  return useQuery({
-    queryKey: [QUERY_KEYS.GET_TOP_RATED_ANIME],
-    queryFn: () => fetchTopRatedAnime({ perPage, page }),
-  });
-};
-
+//ANIME DETAILS
 export const useGetAnimeDetails = ({ id }: { id: string }) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_ANIME_DETAILS, id],
@@ -71,14 +31,7 @@ export const useGetAnimeDetails = ({ id }: { id: string }) => {
   });
 };
 
-// export const useGetEpisodes = ({ id }: { id: string }) => {
-//   return useQuery({
-//     queryKey: [QUERY_KEYS.GET_EPISODES, id],
-//     queryFn: () => getEpisodes({ id }),
-//     enabled: !!id,
-//   });
-// };
-
+//FETCH ALL EPISODES
 export const useGetEpisodes = ({ id }: { id: string }) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_EPISODES, id],
@@ -87,10 +40,17 @@ export const useGetEpisodes = ({ id }: { id: string }) => {
   });
 };
 
-export const useGetStreamingLinks = ({ id }: { id: string }) => {
+//STREAMING LINKS
+export const useGetStreamingLinks = ({
+  id,
+  provider,
+}: {
+  id: string;
+  provider?: string;
+}) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_STREAMING_LINKS, id],
-    queryFn: () => fetchStreamingLinks({ id }),
+    queryFn: () => fetchStreamingLinks({ id, provider }),
     enabled: !!id,
   });
 };
