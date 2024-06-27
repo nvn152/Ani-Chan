@@ -109,7 +109,7 @@ export interface RelationData {
   image: string | StaticImport;
   color?: string | null;
   type: string | null;
-  cover: string | null;
+  cover: string | StaticImport;
   rating?: number | null;
 }
 

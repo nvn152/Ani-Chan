@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Anya-chan",
   description: "Stream your favorite anime",
   icons: {
-    icon: "/Designer.png",
+    icon: "/logo.png",
   },
 };
 

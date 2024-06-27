@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
 
-function EpisodesItem({
+export const EpisodesItem = ({
   episode,
   info,
   animeid,
@@ -13,12 +13,9 @@ function EpisodesItem({
   info?: AnilistInfo;
   animeid?: string;
   episodeid?: string;
-}) {
+}) => {
   const aniid = info?.id || animeid;
-
-  console.log(episodeid);
-  console.log(episode.id);
-
+  
   return (
     <Link
       href={`/watch/${aniid}/${episode.id}`}
@@ -43,6 +40,6 @@ function EpisodesItem({
       </div>
     </Link>
   );
-}
+};
 
-export default EpisodesItem;
+
