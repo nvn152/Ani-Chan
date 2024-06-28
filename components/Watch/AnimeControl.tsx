@@ -1,5 +1,4 @@
 import { AnilistInfo } from "@/lib/types/info";
-import { FC } from "react";
 import { AnimeProviders } from "./AnimeProviders";
 
 export const AnimeControl = ({

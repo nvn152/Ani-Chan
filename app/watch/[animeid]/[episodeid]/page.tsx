@@ -52,9 +52,7 @@ const Page: NextPage = () => {
   return (
     <MaxWidthWrapper>
       <div className="w-full mt-[4.5rem] h-full dark:bg-[#080808] flex flex-col p-2 gap-2">
-        {/* Main content section */}
         <div className="flex flex-col lg:flex-row h-auto lg:h-[calc(100vh-5rem)] w-full gap-2">
-          {/* Left section */}
           <div className="flex flex-col w-full lg:w-[70%] h-auto gap-2">
             <Player data={data} />
 
@@ -67,19 +65,17 @@ const Page: NextPage = () => {
             </div>
           </div>
 
-          {/* Right section */}
           <div className="w-full lg:w-[30%] h-[300px]  rounded-lg lg:h-full  p-2">
             <NextEpisodes
               episodes={episodes}
               episodeid={episodeid}
               animeid={animeid}
-              anime={info}
+              info={info}
               isFetchingEpisodes={isFetchingEpisodes}
             />
           </div>
         </div>
 
-        {/* Lower section */}
         <div className="h-[1240px] rounded-lg w-full bg-green-500 p-2">
           This is the lower div
         </div>

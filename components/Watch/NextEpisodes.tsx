@@ -6,13 +6,13 @@ export const NextEpisodes = ({
   episodes,
   episodeid,
   animeid,
-  anime,
+  info,
   isFetchingEpisodes,
 }: {
   episodes: any;
   episodeid: string;
   animeid: string;
-  anime: AnilistInfo;
+  info: AnilistInfo;
   isFetchingEpisodes: boolean;
 }) => {
   if (isFetchingEpisodes) {
@@ -22,22 +22,16 @@ export const NextEpisodes = ({
   return (
     <ScrollArea className="h-[calc(100vh-5rem)] w-full overflow-auto rounded-md border">
       <div className="p-2 ">
-        {/* <h4 className="my-3 text-lg  text-center font-medium leading-none">
-          Episodes
-        </h4> */}
-        {episodes.legth > 0
+        {episodes.length > 0
           ? episodes.map((ep: any, i: any) => (
-              <>
-                <EpisodesItem
-                  episodeid={episodeid}
-                  animeid={animeid}
-                  key={i}
-                  episode={ep}
-                />
-                {/* <Separator /> */}
-              </>
+              <EpisodesItem
+                episodeid={episodeid}
+                animeid={animeid}
+                key={i}
+                episode={ep}
+              />
             ))
-          : anime.episodes.map((ep: any, i: any) => (
+          : info.episodes.map((ep: any, i: any) => (
               <EpisodesItem
                 episodeid={episodeid}
                 animeid={animeid}

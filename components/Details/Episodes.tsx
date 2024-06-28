@@ -22,9 +22,6 @@ function Episodes({ info, id }: { info: AnilistInfo; id: string }) {
   return (
     <ScrollArea className="h-full w-full rounded-md border">
       <div className="p-2 ">
-        {/* <h4 className="my-3 text-lg  text-center font-medium leading-none">
-          Episodes
-        </h4> */}
         {data.length > 0
           ? data.map((ep: any, i: any) => (
               <>
