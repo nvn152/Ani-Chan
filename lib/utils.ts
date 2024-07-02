@@ -70,24 +70,11 @@ export const Providers = [
   {
     name: "animefox",
   },
-  {
-    name: "animepahe",
-  },
-  {
-    name: "bilibili",
-  },
-  {
-    name: "crunchyroll",
-  },
-  {
-    name: "enime",
-  },
+
   {
     name: "gogoanime",
   },
-  {
-    name: "marin",
-  },
+
   {
     name: "zoro",
   },

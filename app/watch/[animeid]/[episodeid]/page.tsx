@@ -1,5 +1,6 @@
 "use client";
 
+import Seasons from "@/components/Details/Seasons";
 import { MaxWidthWrapper } from "@/components/Shared/MaxWidthWrapper";
 import { AnimeControl } from "@/components/Watch/AnimeControl";
 import { NextEpisodes } from "@/components/Watch/NextEpisodes";
@@ -18,24 +19,18 @@ const Page: NextPage = () => {
     episodeid: string;
   }>();
 
-  const { data, isFetching, error } = useGetStreamingLinks({
+  const { data, isFetching } = useGetStreamingLinks({
     id: episodeid,
     provider: "gogoanime",
   });
 
-  const {
-    data: episodes,
-    isFetching: isFetchingEpisodes,
-    error: errorInfo,
-  } = useGetEpisodes({ id: animeid });
+  const { data: episodes, isFetching: isFetchingEpisodes } = useGetEpisodes({
+    id: animeid,
+  });
 
   const { data: info, isFetching: isFetchingAnimeDetails } = useGetAnimeDetails(
     { id: animeid }
   );
-
-  if (errorInfo) {
-    return <div>Error: {errorInfo.message}</div>;
-  }
 
   if (isFetchingEpisodes || isFetchingAnimeDetails) {
     return <div>Loading...</div>;
@@ -45,14 +40,10 @@ const Page: NextPage = () => {
     return <div>Loading...</div>;
   }
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
   return (
     <MaxWidthWrapper>
       <div className="w-full mt-[4.5rem] h-full dark:bg-[#080808] flex flex-col p-2 gap-2">
-        <div className="flex flex-col lg:flex-row h-auto lg:h-[calc(100vh-5rem)] w-full gap-2">
+        <div className="flex flex-col lg:flex-row h-auto w-full gap-2">
           <div className="flex flex-col w-full lg:w-[70%] h-auto gap-2">
             <Player data={data} />
 
@@ -65,7 +56,7 @@ const Page: NextPage = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[30%] h-[300px]  rounded-lg lg:h-full  p-2">
+          <div className="w-full lg:w-[30%] h-[350px]  rounded-lg lg:h-full  p-2">
             <NextEpisodes
               episodes={episodes}
               episodeid={episodeid}
@@ -76,9 +67,7 @@ const Page: NextPage = () => {
           </div>
         </div>
 
-        <div className="h-[1240px] rounded-lg w-full bg-green-500 p-2">
-          This is the lower div
-        </div>
+        <div className="h-[1240px] rounded-lg w-full bg-green-500 p-2"></div>
       </div>
     </MaxWidthWrapper>
   );

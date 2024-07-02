@@ -1,5 +1,6 @@
 import { AnilistInfo } from "@/lib/types/info";
 import { AnimeProviders } from "./AnimeProviders";
+import Seasons from "@/components/Details/Seasons";
 
 export const AnimeControl = ({
   anime,
@@ -11,7 +12,7 @@ export const AnimeControl = ({
   episodes: any;
 }) => {
   const getCurrentEpisode = () => {
-    if (episodeid && episodes.length > 0) {
+    if (episodeid && episodes && episodes.length > 0) {
       return episodes.find((ep: any) => ep.id === episodeid);
     } else {
       return anime.episodes.find((ep: any) => ep.id === episodeid);
@@ -20,11 +21,11 @@ export const AnimeControl = ({
 
   return (
     <div className="h-full rounded-lg flex gap-2 flex-col w-full">
-      <div className="flex h-1/2 gap-2 flex-grow ">
-        <div className="w-2/3 rounded-lg flex flex-col p-4 justify-center items-center gap-4 bg-[#222222] ">
+      <div className="flex h-[40%] gap-2 flex-grow ">
+        <div className="w-[40%] rounded-lg flex flex-col p-4 justify-center items-center gap-4 bg-[#222222] ">
           <div>
-            You are currently watching{" "}
-            <span className="font-bold ">
+            You are currently watching
+            <span className="font-bold text-gray-100 bg-purple-500 p-1 ml-2 rounded-md">
               Episode {getCurrentEpisode()?.number}
             </span>
           </div>
@@ -34,11 +35,14 @@ export const AnimeControl = ({
           </p>
         </div>
 
-        <div className="w-1/3 rounded-lg bg-[#222222] ">
+        <div className="w-[60%] rounded-lg bg-[#222222] ">
           <AnimeProviders />
         </div>
       </div>
-      <div className="h-1/2 rounded-lg bg-[#222222] ">Bottom div</div>
+      <div className="h-[60%]   rounded-lg bg-[#222222] ">
+        {" "}
+        <Seasons animeData={anime} showHeader={false} />
+      </div>
     </div>
   );
 };

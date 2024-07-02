@@ -20,9 +20,9 @@ export const NextEpisodes = ({
   }
 
   return (
-    <ScrollArea className="h-[calc(100vh-5rem)] w-full overflow-auto rounded-md border">
+    <ScrollArea className="h-[calc(100vh-8rem)] w-full overflow-auto rounded-md border">
       <div className="p-2 ">
-        {episodes.length > 0
+        {episodes && episodes.length > 0
           ? episodes.map((ep: any, i: any) => (
               <EpisodesItem
                 episodeid={episodeid}

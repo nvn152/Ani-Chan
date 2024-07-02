@@ -1,17 +1,20 @@
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Card } from "@nextui-org/card";
 import Image from "next/image";
-import { Button, ButtonGroup } from "@nextui-org/button";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { AnilistInfo } from "@/lib/types/info";
-import { Divider } from "@nextui-org/divider";
-import Link from "next/link";
 
-function Seasons({ animeData }: { animeData: AnilistInfo }) {
+function Seasons({
+  animeData,
+  showHeader,
+}: {
+  animeData: AnilistInfo;
+  showHeader: boolean;
+}) {
   console.log(animeData);
 
   return (
     <div className="w-full h-full items-center justify-between flex flex-col gap-5">
-      <h1 className="text-2xl  h-fit font-bold ">SEASONS</h1>
+      {showHeader && <h1 className="text-2xl  h-fit font-bold ">SEASONS</h1>}
 
       <ScrollArea className="w-full h-fit  whitespace-nowrap rounded-md border">
         <div className="flex w-max space-x-4 p-2">

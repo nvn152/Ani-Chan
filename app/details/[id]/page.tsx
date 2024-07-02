@@ -43,7 +43,7 @@ function Page() {
               <MobileBanner info={info} />
             </div>
             <div className="flex-grow mt-auto flex items-center justify-center relative rounded-lg">
-              <Seasons animeData={info} />
+              <Seasons showHeader={true} animeData={info} />
             </div>
           </div>
 
