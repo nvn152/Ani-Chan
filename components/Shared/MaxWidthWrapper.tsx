@@ -10,7 +10,7 @@ export const MaxWidthWrapper = ({
   return (
     <section
       className={clsx(
-        "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        "w-full max-w-7xl mx-auto px-0 sm:px-0 lg:px-8",
         className
       )}
     >

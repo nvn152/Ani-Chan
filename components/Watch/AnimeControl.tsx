@@ -21,8 +21,8 @@ export const AnimeControl = ({
 
   return (
     <div className="h-full rounded-lg flex gap-2 flex-col w-full">
-      <div className="flex h-[40%] gap-2 flex-grow ">
-        <div className="w-[40%] rounded-lg flex flex-col p-4 justify-center items-center gap-4 bg-[#222222] ">
+      <div className="flex flex-col md:flex-row  h-[40%] gap-2 flex-grow ">
+        <div className="md:w-[40%] w-full rounded-lg flex flex-col p-4 justify-center items-center gap-4 bg-[#222222] ">
           <div>
             You are currently watching
             <span className="font-bold text-gray-100 bg-purple-500 p-1 ml-2 rounded-md">
@@ -35,7 +35,7 @@ export const AnimeControl = ({
           </p>
         </div>
 
-        <div className="w-[60%] rounded-lg bg-[#222222] ">
+        <div className="md:w-[60%] w-full rounded-lg bg-[#222222] ">
           <AnimeProviders />
         </div>
       </div>
